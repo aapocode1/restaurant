@@ -19,22 +19,22 @@ function Footer() {
                 <h3>Contact</h3>
                 <li>
                     <address>
-                        <a href="#"></a>Address: <br/>
+                        <a href="/"></a>Address: <br/>
                         1234 Lemon Street, Chicago
                     </address>
                 </li>
                 <li><a href="tel:+00123456789"></a>Phone: <br/>
                     +00 123 456 789
                 </li>
-                <li><a href="#"></a>Email: <br/>
+                <li><a href="/"></a>Email: <br/>
                     little@lemon.com
                 </li>
             </ul>
             <ul>
                 <h3>Social Media Links</h3>
-                <li><a href="#">Facebook</a></li><br/>
-                <li><a href="#">Instagram</a></li><br/>
-                <li><a href="#">Twitter</a></li>
+                <li><a href="/">Facebook</a></li><br/>
+                <li><a href="/">Instagram</a></li><br/>
+                <li><a href="/">Twitter</a></li>
             </ul>
         </footer>
 

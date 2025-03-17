@@ -1,21 +1,6 @@
 function Main() {
   return (
     <main>
-      <hr/>
-      <section>
-        <h1>Little Lemon</h1>
-        <h2>Chicago</h2>
-        <br/>
-
-        <p>
-          We are a family owned Mediterranean restaurant, focused on traditional
-          recipes served with a modern twist.
-        </p>
-        <img src="./images/restauranfood.jpg" alt="restaurant" width={380} height={480}/>
-      </section>
-
-    <hr/>
-
       <section>
         <h2>This weeks specials!</h2>
         <button type="button">Online Menu</button>

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Markazi+Text:wght@400;500&display=swap');
+
+
 body{
   width: 100%;
   margin: 0 auto;
@@ -5,12 +8,9 @@ body{
 
 li{
   list-style: none;
-  font-family: 'Karla', sans-serif;
-  font-size: 18px;
-  font-weight: medium;
 }
 a{
-  text-decoration:none;
+  text-decoration: none;
 }
 
 nav{
@@ -31,7 +31,7 @@ nav ul li {
 }
 
 nav ul li a{
-  color: #333333;
+  color: #000;
 }
 
 nav ul li a:hover{
@@ -44,12 +44,12 @@ nav ul li a:hover{
   cursor: pointer;
 }
 
-/* .bar {
+.bar {
   width: 25px;
   height: 3px;
   background-color: black;
   margin: 5px 0;
-} */
+}
 
 .nav-links {
   list-style: none;
