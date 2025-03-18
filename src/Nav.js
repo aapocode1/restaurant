@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import logo from "./images/Logo.png";
 
 function Nav() {
     const [menuOpen, setMenuOpen]= useState(false)
@@ -9,7 +10,7 @@ function Nav() {
   
   return (
       <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-        <a href="/" className="logo"><img src= "./images/Logo.png" alt="logo" /></a>
+        <a href="/" className="logo"><img src= {logo} alt="logo" /></a>
         
         <div className="menu-icon" onClick={toggleMenu}>
           <img src= "./images/icon_hamburger_menu.png" alt="icon_menu" />
