@@ -1,51 +1,64 @@
-function Main() {
+import React,{useReducer} from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Header from "./Header";
+import Booking from "./Booking";
+import ConfirmedBooking from "./ConfirmedBooking";
+
+
+const Main = () => {
+  
+    const seedRandom = function (seed) {
+        var m = 2**35 - 31
+        var a = 185852
+        var s = seed % m
+        return function(){
+            return(s = s * a % m) /m;
+        }
+    }
+    
+  
+    const fetchAPI = function (date) {
+    let result = [];
+    let random = seedRandom(date.getDate());
+    for (let i = 17; i <= 23; i++) {
+      if (random() < 0.5) {
+        result.push(i + ':00');
+      }
+      if (random() > 0.5) {
+        result.push(i + ':30');
+      }
+    }
+    return result;
+  };
+
+  const submitAPI = function (formData) {
+    return true;
+  };
+
+  const initialState = { availableTimes: fetchAPI(new Date()) };
+  const [state, dispatch] = useReducer(updateTimes, initialState);
+
+  function updateTimes(state, date) {
+    return { availableTimes: fetchAPI(new Date()) };
+  }
+
+  const navigate = useNavigate();
+  function submitForm(formData) {
+    if (submitAPI(formData)) {
+      navigate("/confirmed");
+    }
+  }
+
   return (
-    <main>
-      <section>
-        <h2>This weeks specials!</h2>
-        <button type="button">Online Menu</button>
-        <br/>
-        <br/>
-
-        <article>
-            <img src="./images/greek-salad.jpg" alt="greek-salad" width={200} height={200}/>
-            <h3>Greek Salad</h3>
-            <h3>$ 12.99</h3>
-            <p>
-                The famous greek salad of crispy lettuce, peppers, olives and our Chicago style fota cheese, garnished with crunchy garlic and rosemary croutons.
-            </p>
-            <p>Order a delivery
-                <img src="./images/delivery-bike.png" alt= "delivery-icon" width={25} height={25}/>
-            </p>
-        </article>
-
-        <article>
-            <img src="./images/bruchetta.jpg" alt="bruchetta" width={200} height={200}/>
-            <h3>Bruchetta</h3>
-            <h3>$ 5.99</h3>
-            <p>
-            Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. 
-            </p>
-            <p>Order a delivery
-                <img src="./images/delivery-bike.png" alt= "delivery-icon" width={25} height={25}/>
-            </p>
-        </article>
-
-        <article>
-            <img src="./images/lemon-dessert.jpg" alt="lemon-dessert" width={200} height={200}/>
-            <h3>Lemon Dessert</h3>
-            <h3>$ 5.00</h3>
-            <p>
-                TThis comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.
-            </p>
-            <p>Order a delivery
-                <img src="./images/delivery-bike.png" alt= "delivery-icon" width={25} height={25}/>
-            </p>
-        </article>
-    </section>
-    <hr/>
+    <main className="main">
+      <Routes>
+        <Route path="/" element={<Header />} />
+        <Route path="/booking" element={<Booking availableTimes={state} dispatch={dispatch} submitForm=
+        {submitForm}/>} />
+        <Route path="/confirmed" element={<ConfirmedBooking />} />
+      </Routes>
     </main>
   );
-}
+};
 
 export default Main;
