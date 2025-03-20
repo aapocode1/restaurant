@@ -22,7 +22,7 @@ const BookingForm = (props) => {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <div>
-              <label htmlFor="book-date">Choose date</label>
+              <label htmlFor="book-date">Choose Date</label>
               <input
                 type="date"
                 id="book-date"
@@ -32,7 +32,7 @@ const BookingForm = (props) => {
               />
             </div>
             <div>
-              <label htmlFor="book-time">Choose time:</label>
+              <label htmlFor="book-time">Choose Time</label>
               <select
                 id="book-time"
                 value={times}
